@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Sistema Notas Fiscais - Produtos</title>
+</h:head>
+<h:body>
+<h2>
+	<h:outputLabel value="Novo Produto" rendered="#{empty produtoBean.produto.id}"></h:outputLabel>
+	<h:outputLabel value="Alterar Produto" rendered="#{not empty produtoBean.produto.id}"></h:outputLabel>
+</h2>
+	<h:form id="formProduto">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText id="nome" value="#{produtoBean.produto.nome}" />
+
+			<h:outputLabel value="Descrição" for="descricao" />
+			<h:inputTextarea id="descricao"
+				value="#{produtoBean.produto.descricao}" />
+
+			<h:outputLabel value="Preço" for="preco" />
+			<h:inputText id="preco" value="#{produtoBean.produto.preco}">
+			</h:inputText>
+
+			<h:inputHidden value="#{produtoBean.produto.id}" />
+			<h:commandButton value="Gravar" action="#{produtoBean.gravar}" />
+		</h:panelGrid>
+	</h:form>
+
+	<h:form id="formBuscaProduto">
+		<h:panelGrid columns="2">
+			<h:outputLabel>Nome para buscar</h:outputLabel>
+			<h:inputText id="nome" value="#{produtoBean.nomeProduto}"></h:inputText>
+			<h:commandButton value="Listar Todos" action="#{produtoBean.all}"></h:commandButton>
+			<h:commandButton value="Buscar" action="#{produtoBean.buscar}"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+
+	<h:form id="formListarProdutos">
+		<h:dataTable value="#{produtoBean.produtos}" var="produto" border="1">
+			<f:facet name="header">Lista de produtos</f:facet>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+			#{produto.nome}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+			#{produto.preco}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+			#{produto.descricao}
+		</h:column>
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:panelGrid columns="2">
+					<h:commandLink value="Alterar">
+						<f:setPropertyActionListener target="#{produtoBean.produto}"
+							value="#{produto}" />
+					</h:commandLink>
+					<h:commandLink action="#{produtoBean.remover(produto)}">Remover</h:commandLink>
+				</h:panelGrid>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
