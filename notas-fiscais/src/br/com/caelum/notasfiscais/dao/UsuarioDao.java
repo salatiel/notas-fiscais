@@ -8,20 +8,24 @@ import javax.persistence.Query;
 import br.com.caelum.notasfiscais.modelo.Usuario;
 import br.com.caelum.notasfiscais.util.JPAUtil;
 
-public class UsuarioDao implements Serializable {
+public class UsuarioDao extends GenericDao<Usuario, Serializable> {
 
-	private static final long serialVersionUID = 1L;
-	
-	public boolean existe(Usuario usuario) {
-		
-		EntityManager manager = new JPAUtil().getEntityManager();
-		
-		Query query = manager.createQuery("select u from Usuario u where u.login = :pLogin and u.senha = :pSenha")
-						.setParameter("pLogin", usuario.getLogin())
-						.setParameter("pSenha", usuario.getSenha());
+    public UsuarioDao() {
+	super(Usuario.class, JPAUtil.getEntityManager());
+    }
 
-		boolean encontrado = !query.getResultList().isEmpty();
+    public boolean existe(Usuario usuario) {
 
-		return encontrado;
-	}
+	EntityManager manager = JPAUtil.getEntityManager();
+
+	Query query = manager
+		.createQuery(
+			"select u from Usuario u where u.login = :pLogin and u.senha = :pSenha")
+		.setParameter("pLogin", usuario.getLogin())
+		.setParameter("pSenha", usuario.getSenha());
+
+	boolean encontrado = !query.getResultList().isEmpty();
+
+	return encontrado;
+    }
 }
