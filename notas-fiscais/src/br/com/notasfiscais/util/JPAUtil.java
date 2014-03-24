@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.util;
+package br.com.notasfiscais.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

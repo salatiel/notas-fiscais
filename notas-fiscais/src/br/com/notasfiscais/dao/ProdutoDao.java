@@ -1,9 +1,9 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 
-import br.com.caelum.notasfiscais.modelo.Produto;
-import br.com.caelum.notasfiscais.util.JPAUtil;
+import br.com.notasfiscais.modelo.Produto;
+import br.com.notasfiscais.util.JPAUtil;
 
 public class ProdutoDao extends GenericDao<Produto, Serializable> {
 

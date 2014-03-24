@@ -1,11 +1,11 @@
-package br.com.caelum.notasfiscais.managerbean;
+package br.com.notasfiscais.managerbean;
 
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-import br.com.caelum.notasfiscais.dao.ProdutoDao;
-import br.com.caelum.notasfiscais.modelo.Produto;
+import br.com.notasfiscais.dao.ProdutoDao;
+import br.com.notasfiscais.modelo.Produto;
 
 @ManagedBean
 public class ProdutoBean {

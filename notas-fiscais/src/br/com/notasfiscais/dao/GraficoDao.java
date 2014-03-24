@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.caelum.notasfiscais.modelo.QuantidadePorProduto;
+import br.com.notasfiscais.modelo.QuantidadePorProduto;
 
 public class GraficoDao implements Serializable {
 

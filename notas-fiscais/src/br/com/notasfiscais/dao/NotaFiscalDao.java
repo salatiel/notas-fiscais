@@ -1,11 +1,13 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
-import br.com.caelum.notasfiscais.modelo.NotaFiscal;
+
+import br.com.notasfiscais.modelo.NotaFiscal;
 
 public class NotaFiscalDao implements Serializable {
 	

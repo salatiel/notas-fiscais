@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.modelo;
+package br.com.notasfiscais.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

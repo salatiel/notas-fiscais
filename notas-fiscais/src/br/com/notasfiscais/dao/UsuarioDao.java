@@ -1,12 +1,12 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.com.caelum.notasfiscais.modelo.Usuario;
-import br.com.caelum.notasfiscais.util.JPAUtil;
+import br.com.notasfiscais.modelo.Usuario;
+import br.com.notasfiscais.util.JPAUtil;
 
 public class UsuarioDao extends GenericDao<Usuario, Serializable> {
 

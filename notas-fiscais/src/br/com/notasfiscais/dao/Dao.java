@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.util.List;
 import javax.inject.Inject;

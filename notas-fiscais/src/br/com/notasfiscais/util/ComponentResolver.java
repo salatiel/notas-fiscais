@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.util;
+package br.com.notasfiscais.util;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;

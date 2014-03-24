@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.dao;
+package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,4 +1,4 @@
-package br.com.caelum.notasfiscais.modelo;
+package br.com.notasfiscais.modelo;
 
 import java.util.ArrayList;
 import java.util.Calendar;

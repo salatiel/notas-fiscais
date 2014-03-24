@@ -5,10 +5,10 @@
 	version="2.0">
 	<persistence-unit name="notas" transaction-type="RESOURCE_LOCAL">
 
-		<class>br.com.caelum.notasfiscais.modelo.Item</class>
-		<class>br.com.caelum.notasfiscais.modelo.NotaFiscal</class>
-		<class>br.com.caelum.notasfiscais.modelo.Produto</class>
-		<class>br.com.caelum.notasfiscais.modelo.Usuario</class>
+		<class>br.com.notasfiscais.modelo.Item</class>
+		<class>br.com.notasfiscais.modelo.NotaFiscal</class>
+		<class>br.com.notasfiscais.modelo.Produto</class>
+		<class>br.com.notasfiscais.modelo.Usuario</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
