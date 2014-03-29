@@ -2,21 +2,20 @@ package br.com.notasfiscais.dao;
 
 import java.io.Serializable;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.notasfiscais.modelo.Usuario;
-import br.com.notasfiscais.util.JPAUtil;
 
-public class UsuarioDao extends GenericDao<Usuario, Serializable> {
+public class UsuarioDao implements Serializable {
 
-    public UsuarioDao() {
-	super(Usuario.class, JPAUtil.getEntityManager());
-    }
+    private static final long serialVersionUID = 1L;
+
+    @Inject
+    private EntityManager manager;
 
     public boolean existe(Usuario usuario) {
-
-	EntityManager manager = JPAUtil.getEntityManager();
 
 	Query query = manager
 		.createQuery(

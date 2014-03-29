@@ -14,15 +14,16 @@
 	</div>
 	<div id="conteudo">
 		<h2>Login no sistema</h2>
-		<h:form id="formMenu">
-		<fieldset>
-				<legend>Menu</legend>
-			<h:panelGrid columns="1" styleClass="campos">
-				<h:commandLink value="Login" action="login?faces-redirect=true" rendered="#{not usuarioLogado.logado}" />
-				<h:commandLink value="Produto" action="produto?faces-redirect=true"
-					rendered="#{usuarioLogado.logado}" />
+		<h:form id="formlogin">
+			<h:panelGrid columns="2" styleClass="campos">
+				<h:outputLabel value="Login" for="login" />
+				<h:inputText value="#{loginBean.usuario.login}" id="login" />
+
+				<h:outputLabel value="Password" for="senha" />
+				<h:inputSecret value="#{loginBean.usuario.senha}" id="senha" />
+
+				<h:commandButton value="Acessar" action="#{loginBean.efetuaLogin}" />
 			</h:panelGrid>
-			</fieldset>
 		</h:form>
 	</div>
 	<div id="rodape">

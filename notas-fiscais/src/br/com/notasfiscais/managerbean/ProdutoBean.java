@@ -2,28 +2,32 @@ package br.com.notasfiscais.managerbean;
 
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.notasfiscais.dao.ProdutoDao;
 import br.com.notasfiscais.modelo.Produto;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class ProdutoBean {
+
+    @Inject
+    private ProdutoDao dao;
 
     private Produto produto = new Produto();
 
     private List<Produto> produtos;
 
-    private ProdutoDao dao = new ProdutoDao();
-    
-    private String nomeProduto;
-    
-    public String getNomeProduto() {
-        return nomeProduto;
+    private String nome;
+
+    public String getNome() {
+	return nome;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNome(String nome) {
+	this.nome = nome;
     }
 
     public Produto getProduto() {
@@ -34,36 +38,44 @@ public class ProdutoBean {
 	this.produto = produto;
     }
 
-    public void gravar() {
+    public void cancelar() {
+	this.produto = new Produto();
+    }
 
-	dao.save(produto);
+    public void gravar() {
+	if (produto.getId() == null) {
+	    dao.adiciona(produto);
+
+	} else {
+	    dao.atualiza(produto);
+	}
 
 	this.produto = new Produto();
-	this.produtos = dao.listAll();
+	this.produtos = dao.listaTodos();
     }
 
     public List<Produto> getProdutos() {
 	if (produtos == null) {
-	    this.produtos = dao.listAll();
+	    this.produtos = dao.listaTodos();
 	}
 	return produtos;
     }
 
     public void remover(Produto produto) {
-	dao.delete(produto.getId());
-	this.produtos = dao.listAll();
+	dao.remove(produto);
+	this.produtos = dao.listaTodos();
     }
 
     public void buscar() {
-	if (produto != null) {
-	    nomeProduto = String.format("%%%s%%", nomeProduto);
-	    this.produtos = dao.getListObjects(nomeProduto, "Produto.findByNome");
-	    this.produto = new Produto();
-	    nomeProduto = "";
+	if (nome != null && nome.trim().length() > 0) {
+	    this.nome = String.format("%%%s%%", nome);
+	    this.produtos = dao.buscaPorNome(nome);
+	    this.nome = "";
 	}
     }
 
     public void all() {
-	this.produtos = dao.listAll();
+	this.produto = new Produto();
+	this.produtos = dao.listaTodos();
     }
 }
