@@ -15,7 +15,7 @@
 	<div id="conteudo">
 		<h:form id="formProduto">
 			<h4 align="right">
-				<h:outputLabel value="Usuário: #{usuarioLogado.usuario.login}, "/>
+				<h:outputLabel value="Usuário: #{usuarioLogado.usuario.login}, " />
 
 				<h:commandLink value="logout" action="#{loginBean.logout}" />
 			</h4>
@@ -38,13 +38,12 @@
 				<h:outputLabel value="Preço" for="preco" />
 				<h:inputText id="preco" value="#{produtoBean.produto.preco}" />
 
-				<h:commandButton value="Gravar" action="#{produtoBean.gravar()}">
-					<f:ajax render="@form :formTabela" execute="@form"></f:ajax>
-				</h:commandButton>
-
-				<h:commandButton value="Cancelar" action="#{produtoBean.cancelar}">
-					<f:ajax render="@form" />
-				</h:commandButton>
+					<h:commandButton value="Gravar" action="#{produtoBean.gravar()}">
+						<f:ajax render="@form :formTabela" execute="@form"></f:ajax>
+					</h:commandButton>
+					<h:commandButton value="Cancelar" action="#{produtoBean.cancelar}">
+						<f:ajax render="@form" />
+					</h:commandButton>
 			</fieldset>
 		</h:form>
 
@@ -84,7 +83,8 @@
 								value="#{produto}" />
 							<f:ajax render=":formProduto"></f:ajax>
 						</h:commandLink>
-						<h:commandLink action="#{produtoBean.remover(produto)}" value="Remover">
+						<h:commandLink action="#{produtoBean.remover(produto)}"
+							value="Remover">
 							<f:ajax render="@form"></f:ajax>
 						</h:commandLink>
 					</h:panelGrid>

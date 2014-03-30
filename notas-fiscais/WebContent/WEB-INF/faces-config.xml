@@ -6,5 +6,6 @@
 
 	<lifecycle>
 		<phase-listener>br.com.notasfiscais.listener.CicloDeVidaListener</phase-listener>
+		<phase-listener>br.com.notasfiscais.listener.ValidatorUserLoggedListener</phase-listener>
 	</lifecycle>
 </faces-config>
