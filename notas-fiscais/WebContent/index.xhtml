@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Welcome - Sistema Notas Fiscais - UberDist</title>
-	<h:outputStylesheet library="css" name="style.css" />
-</h:head>
-<h:body>
-	<div id="cabecalho">
-		<h:graphicImage library="img" name="logo-uber.png" id="logoCompany" />
-	</div>
-	<div id="conteudo">
+
+<ui:composition template="/_template.xhtml">
+	<ui:define name="corpo">
 		<h2>Login no sistema</h2>
 		<h:form id="formMenu">
-		<fieldset>
+			<fieldset>
 				<legend>Menu</legend>
-			<h:panelGrid columns="1" styleClass="campos">
-				<h:commandLink value="Login" action="login?faces-redirect=true" rendered="#{not usuarioLogado.logado}" />
-				<h:commandLink value="Produto" action="produto?faces-redirect=true"
-					rendered="#{usuarioLogado.logado}" />
-			</h:panelGrid>
+				<h:panelGrid columns="1" styleClass="campos">
+					<h:commandLink value="Login" action="login?faces-redirect=true"
+						rendered="#{not usuarioLogado.logado}" />
+					<h:commandLink value="Produto" action="produto?faces-redirect=true"
+						rendered="#{usuarioLogado.logado}" />
+				</h:panelGrid>
 			</fieldset>
 		</h:form>
-	</div>
-	<div id="rodape">
-		Copyringht 2014 Todos os direitos reservados a <b>Tapioca de Bode</b>.
-	</div>
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>

@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Sistema Notas Fiscais - UberDist</title>
-	<h:outputStylesheet library="css" name="style.css" />
-</h:head>
-<h:body>
-	<div id="cabecalho">
-		<h:graphicImage library="img" name="logo-uber.png" id="logoCompany" />
-	</div>
-	<div id="conteudo">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="corpo">
 		<h:form id="formProduto">
-			<h4 align="right">
-				<h:outputLabel value="Usuário: #{usuarioLogado.usuario.login}, " />
-
-				<h:commandLink value="logout" action="#{loginBean.logout}" />
-			</h4>
 			<h2>
 				<h:outputLabel value="Novo Produto"
 					rendered="#{empty produtoBean.produto.id}"></h:outputLabel>
@@ -38,12 +26,12 @@
 				<h:outputLabel value="Preço" for="preco" />
 				<h:inputText id="preco" value="#{produtoBean.produto.preco}" />
 
-					<h:commandButton value="Gravar" action="#{produtoBean.gravar()}">
-						<f:ajax render="@form :formTabela" execute="@form"></f:ajax>
-					</h:commandButton>
-					<h:commandButton value="Cancelar" action="#{produtoBean.cancelar}">
-						<f:ajax render="@form" />
-					</h:commandButton>
+				<h:commandButton value="Gravar" action="#{produtoBean.gravar()}">
+					<f:ajax render="@form :formTabela" execute="@form"></f:ajax>
+				</h:commandButton>
+				<h:commandButton value="Cancelar" action="#{produtoBean.cancelar}">
+					<f:ajax render="@form" />
+				</h:commandButton>
 			</fieldset>
 		</h:form>
 
@@ -91,9 +79,6 @@
 				</h:column>
 			</h:dataTable>
 		</h:form>
-	</div>
-	<div id="rodape">
-		Copyringht 2014 Todos os direitos reservados a <b>Tapioca de Bode</b>.
-	</div>
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>
