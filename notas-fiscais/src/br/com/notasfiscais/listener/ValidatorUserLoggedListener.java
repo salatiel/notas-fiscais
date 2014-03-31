@@ -16,6 +16,10 @@ public class ValidatorUserLoggedListener implements PhaseListener {
     @Inject
     private UsuarioLogado usuarioLogado;
 
+    /*
+     * TODO- the pages authorized for user logged in is possible retrieve in
+     * database by username.
+     */
     private String[] pagesAuthoride = { "login", "index" };
 
     @Override
@@ -23,7 +27,7 @@ public class ValidatorUserLoggedListener implements PhaseListener {
 	if (!usuarioLogado.isLogado()) {
 
 	    boolean authorized = false;
-	    
+
 	    FacesContext context = event.getFacesContext();
 
 	    String view = context.getViewRoot().getViewId();
@@ -33,11 +37,13 @@ public class ValidatorUserLoggedListener implements PhaseListener {
 		    authorized = true;
 		}
 	    }
-	    if(!authorized){
-		NavigationHandler handler = context.getApplication().getNavigationHandler();
-		
-		handler.handleNavigation(context, null, "login?faces-redirect=true");
-		
+	    if (!authorized) {
+		NavigationHandler handler = context.getApplication()
+			.getNavigationHandler();
+
+		handler.handleNavigation(context, null,
+			"login?faces-redirect=true");
+
 		context.renderResponse();
 	    }
 	}

@@ -6,13 +6,13 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/_template.xhtml">
+	<ui:define name="title">Sistema Notas Fiscais - UberDist - Home</ui:define>
 	<ui:define name="corpo">
-		<h2>Login no sistema</h2>
 		<h:form id="formMenu">
 			<fieldset>
 				<legend>Menu</legend>
 				<h:panelGrid columns="1" styleClass="campos">
-					<h:commandLink value="Login" action="login?faces-redirect=true"
+					<h:commandLink value="Administrativo" action="login?faces-redirect=true"
 						rendered="#{not usuarioLogado.logado}" />
 					<h:commandLink value="Produto" action="produto?faces-redirect=true"
 						rendered="#{usuarioLogado.logado}" />
