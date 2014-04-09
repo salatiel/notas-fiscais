@@ -8,9 +8,14 @@ import javax.persistence.Query;
 
 import br.com.notasfiscais.modelo.Usuario;
 
-public class UsuarioDao implements Serializable {
+public class UsuarioDao extends Dao<Usuario> implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public UsuarioDao() {
+	super(Usuario.class);
+    }
+
 
     @Inject
     private EntityManager manager;
