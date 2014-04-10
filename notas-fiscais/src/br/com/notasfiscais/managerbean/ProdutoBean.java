@@ -2,15 +2,16 @@ package br.com.notasfiscais.managerbean;
 
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.notasfiscais.dao.ProdutoDao;
+import br.com.notasfiscais.interceptor.Transactional;
 import br.com.notasfiscais.modelo.Produto;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class ProdutoBean {
 
     @Inject
@@ -42,10 +43,11 @@ public class ProdutoBean {
 	this.produto = new Produto();
     }
 
+    @Transactional
     public void gravar() {
+
 	if (produto.getId() == null) {
 	    dao.adiciona(produto);
-
 	} else {
 	    dao.atualiza(produto);
 	}
@@ -61,6 +63,7 @@ public class ProdutoBean {
 	return produtos;
     }
 
+    @Transactional
     public void remover(Produto produto) {
 	dao.remove(produto);
 	this.produtos = dao.listaTodos();
