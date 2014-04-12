@@ -19,11 +19,9 @@ public class TransactionalInterceptor implements Serializable {
 
     @AroundInvoke
     public Object intercept(InvocationContext context) throws Exception {
-	System.out.println("Open the connection");
 	manager.getTransaction().begin();
 	Object resulted = context.proceed();
 	manager.getTransaction().commit();
-	System.out.println("End the connection");
 	return resulted;
     }
 }
