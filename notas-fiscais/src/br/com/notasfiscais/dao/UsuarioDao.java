@@ -16,7 +16,6 @@ public class UsuarioDao extends Dao<Usuario> implements Serializable {
 	super(Usuario.class);
     }
 
-
     @Inject
     private EntityManager manager;
 
